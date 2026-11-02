@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net462</TargetFramework>
+        <AssemblyName>QuickLook.Plugin.OfficeViewer</AssemblyName>
+        <RootNamespace>QuickLook.Plugin.OfficeViewer</RootNamespace>
+        <UseWPF>true</UseWPF>
+        <LangVersion>latest</LangVersion>
+        <ProjectGuid>{3BC001F4-1B29-4526-923F-E56E9B12980A}</ProjectGuid>
+        <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <FileAlignment>512</FileAlignment>
+        <WarningLevel>4</WarningLevel>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>..\QuickLook\Build\Debug\QuickLook.Plugin\QuickLook.Plugin.OfficeViewer</OutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DefineConstants>TRACE</DefineConstants>
+        <DebugSymbols>false</DebugSymbols>
+        <DebugType>Portable</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Syncfusion.OfficeChartToImageConverter.Wpf" Version="32.1.19" />
+        <PackageReference Include="Syncfusion.Presentation.Wpf" Version="32.1.19" />
+        <PackageReference Include="Syncfusion.PresentationToPdfConverter.Wpf" Version="32.1.19" />
+        <PackageReference Include="Syncfusion.SfRichTextBoxAdv.WPF" Version="32.1.19" />
+        <PackageReference Include="Syncfusion.SfSpreadsheetHelper.WPF" Version="32.1.19" />
+        <PackageReference Include="Syncfusion.Tools.WPF" Version="32.1.19" />
+        <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="32.1.19" />
+        <Reference Include="QuickLook.Plugin.PDFViewer">
+            <HintPath>QuickLook.Plugin.PDFViewer\QuickLook.Plugin.PDFViewer.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="WindowsBase" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="QuickLook.Plugin.Metadata.Base.config" />
+        <None Include="QuickLook.Plugin.Metadata.config">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="QuickLook.Common\**" />
+        <Compile Remove="QuickLook.Common\**" />
+        <Page Remove="QuickLook.Common\**" />
+        <EmbeddedResource Remove="QuickLook.Common\**" />
+        <None Remove="QuickLook.Plugin.PDFViewer\**" />
+        <Compile Remove="QuickLook.Plugin.PDFViewer\**" />
+        <EmbeddedResource Remove="QuickLook.Plugin.PDFViewer\**" />
+        <Compile Remove="SyncfusionKey.Example.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="QuickLook.Common\QuickLook.Common.csproj">
+            <Project>{85FDD6BA-871D-46C8-BD64-F6BB0CB5EA95}</Project>
+            <Name>QuickLook.Common</Name>
+            <Private>False</Private>
+        </ProjectReference>
+    </ItemGroup>
+
+</Project>
